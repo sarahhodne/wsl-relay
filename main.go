@@ -52,9 +52,9 @@ func main() {
 	} else if *gpgFile != "" {
 		fileName := *gpgFile
 		if !filepath.IsAbs(fileName) {
-			appdata, ok := os.LookupEnv("APPDATA")
+			appdata, ok := os.LookupEnv("LOCALAPPDATA")
 			if !ok {
-				log.Fatal("Missing the %APPDATA% variable?")
+				log.Fatal("Missing the %LOCALAPPDATA% variable?")
 			}
 			gpgDir := filepath.Join(appdata, "gnupg")
 			_, err := os.Stat(gpgDir)
